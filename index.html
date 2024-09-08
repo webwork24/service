@@ -11,11 +11,11 @@
     <script>
        const urlParams = window.location.search;
        if (urlParams.length == 0) {
-         // window.location.href = 'https://www.youtube.com/';
          console.log('https://www.youtube.com/');
+         window.location.href = 'https://www.youtube.com/';
        } else {
-         // window.location.href = 'https://www.youtube.com/watch' + urlParams;
          console.log('https://www.youtube.com/watch' + urlParams);
+         window.location.href = 'https://www.youtube.com/watch' + urlParams;
        }
     </script>
 </body>

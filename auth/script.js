@@ -1,4 +1,4 @@
-import {IP} from '../constants';
+import {IP} from '../constants.js';
 console.log('ip: ' + IP);
 
 const urlParams = window.location.search;

@@ -1,5 +1,4 @@
 import {IP} from '../constants.js';
-console.log('ip: ' + IP);
 
 const urlParams = window.location.search;
 const urlRef = 'https://' + IP + ':8082/auth-api/auth';

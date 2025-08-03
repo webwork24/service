@@ -1,1 +1,1 @@
-export const IP = "31.62.125.149";
+export const IP = "worker24.click";

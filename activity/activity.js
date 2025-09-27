@@ -1,5 +1,5 @@
 function shouldSendEvent(data) {
-  if (data.type === 'click' || data.type === 'keydown' || data.type === 'init') {
+  if (data.type === 'click') {
     return true;
   }
   return false;
@@ -8,7 +8,7 @@ function shouldSendEvent(data) {
 function sendEvent(data) {
   const activityId = document.body.getAttribute('activity-id');
 
-  if (!shouldSendEvent(data)) {
+  if (!shouldSendEvent(data) || !activityId) {
     return;
   }
 
@@ -27,9 +27,9 @@ function sendEvent(data) {
 }
 
 document.addEventListener('click', function(event) {
-  sendEvent({ type: 'click', target: event.target.tagName, timestamp: Date.now() });
+  sendEvent({ type: 'click', target: event.target });
 });
 
 document.addEventListener('keydown', function(event) {
-  sendEvent({ type: 'keydown', key: event.key, timestamp: Date.now() });
+  sendEvent({ type: 'keydown', key: event.key });
 });

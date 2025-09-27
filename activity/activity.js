@@ -1,8 +1,19 @@
+function shouldSendEvent(data) {
+  if (data.type === 'click' || data.type === 'keydown' || data.type === 'init') {
+    return true;
+  }
+  return false;
+}
+
 function sendEvent(data) {
-  const listenerId = document.body.getAttribute('data-listener-id');
+  const activityId = document.body.getAttribute('activity-id');
+
+  if (!shouldSendEvent(data)) {
+    return;
+  }
 
   const payload = {
-    ListenerId: listenerId,
+    ActivityId: activityId,
     ...data
   };
 
@@ -22,4 +33,3 @@ document.addEventListener('click', function(event) {
 document.addEventListener('keydown', function(event) {
   sendEvent({ type: 'keydown', key: event.key, timestamp: Date.now() });
 });
-

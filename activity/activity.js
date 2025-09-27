@@ -1,8 +1,8 @@
+import {IP} from '../constants.js';
+const urlRef = 'https://' + IP + ':8086/activity';
+
 function shouldSendEvent(data) {
-  if (data.type === 'click') {
-    return true;
-  }
-  return false;
+  return true;
 }
 
 function sendEvent(data) {
@@ -17,7 +17,7 @@ function sendEvent(data) {
     ...data
   };
 
-  fetch('https://worker24.link/frontend_events_listener', {
+  fetch(urlRef, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -27,9 +27,8 @@ function sendEvent(data) {
 }
 
 document.addEventListener('click', function(event) {
-  sendEvent({ type: 'click', targetTagName: event.target.tagName, targetText: event.target.text, targetAttributes: event.target.attributes });
-});
-
-document.addEventListener('keydown', function(event) {
-  sendEvent({ type: 'keydown', key: event.key });
+  sendEvent({ type: 'click', 
+              targetTagName: event.target.tagName,
+              targetText: event.target.text,
+              targetAttributes: event.target.attributes });
 });

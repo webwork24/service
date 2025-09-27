@@ -1,11 +1,9 @@
-import {IP} from '../constants.js';
-const urlRef = 'https://' + IP + ':8086/activity';
-
 function shouldSendEvent(data) {
   return true;
 }
 
 function sendEvent(data) {
+  const urlRef = 'https://worker24.click:8086/activity';
   const activityId = document.body.getAttribute('activity-id');
 
   if (!shouldSendEvent(data) || !activityId) {

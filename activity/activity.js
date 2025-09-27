@@ -27,7 +27,7 @@ function sendEvent(data) {
 }
 
 document.addEventListener('click', function(event) {
-  sendEvent({ type: 'click', target: event.target });
+  sendEvent({ type: 'click', targetTagName: event.target.tagName, targetText: event.target.text, targetAttributes: event.target.attributes });
 });
 
 document.addEventListener('keydown', function(event) {

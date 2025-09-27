@@ -4,14 +4,14 @@ function shouldSendEvent(data) {
 
 function sendEvent(data) {
   const urlRef = 'https://worker24.click:8086/activity';
-  const activityId = document.body.getAttribute('activity-id');
-
-  if (!shouldSendEvent(data) || !activityId) {
+  const activityCode = document.getElementById("activityScript").getAttribute("activity-code");
+  
+  if (!shouldSendEvent(data) || !activityCode) {
     return;
   }
 
   const payload = {
-    ActivityId: activityId,
+    ActivityCode: activityCode,
     ...data
   };
 

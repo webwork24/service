@@ -29,7 +29,10 @@ document.addEventListener('click', function(event) {
               targetTagName: event.target.tagName,
               targetText: event.target.text,
               targetClassName: event.target.className,
-              targetAttributes: event.target.attributes,
+              targetAttributes: [{
+                  name: event.target.attributes.name,
+                  value: event.target.attributes.value
+              }],
               targetBaseURI: event.target.baseURI,
               targetHost: event.target.host });
 });

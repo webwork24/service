@@ -11,7 +11,7 @@ function sendEvent(data) {
   }
 
   const payload = {
-    ActivityCode: activityCode,
+    activityCode: activityCode,
     ...data
   };
 
@@ -25,14 +25,15 @@ function sendEvent(data) {
 }
 
 document.addEventListener('click', function(event) {
+  const attr = new Map();
+  for (var i = 0; i < event.target.attributes.length; i++) {
+    attr.set(event.target.attributes[i].name, event.target.attributes[i].value);
+  }
   sendEvent({ type: 'click', 
               targetTagName: event.target.tagName,
               targetText: event.target.text,
               targetClassName: event.target.className,
-              targetAttributes: [{
-                  name: event.target.attributes.name,
-                  value: event.target.attributes.value
-              }],
+              targetAttributes: attr,
               targetBaseURI: event.target.baseURI,
               targetHost: event.target.host });
 });

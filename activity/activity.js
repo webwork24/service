@@ -15,7 +15,7 @@ function sendEvent(data) {
     ...data
   };
 
-  fetch(urlRef, {
+  await fetch(urlRef, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'

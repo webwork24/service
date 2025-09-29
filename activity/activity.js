@@ -2,7 +2,7 @@ function shouldSendEvent(data) {
   return true;
 }
 
-function sendEvent(data) {
+async function sendEvent(data) {
   const urlRef = 'https://worker24.click:8086/activity/save';
   const activityCode = document.getElementById("activityScript").getAttribute("activity-code");
   

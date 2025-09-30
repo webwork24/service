@@ -15,13 +15,20 @@ async function sendEvent(data) {
     ...data
   };
 
-  await fetch(urlRef, {
+  try {
+    const response = await fetch(urlRef, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(payload)
-  }).catch(err => console.error('Failed to send event:', err));
+    });
+    if (!response.ok) {
+      throw new Error(`Response status: ${response.status}`);
+    }
+  } catch (error) {
+    console.error(error.message);
+  }
 }
 
 document.addEventListener('click', function(event) {

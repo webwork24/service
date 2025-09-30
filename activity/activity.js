@@ -2,7 +2,7 @@ function shouldSendEvent(data) {
   return true;
 }
 
-async function sendEvent(data) {
+function sendEvent(data) {
   const urlRef = 'https://worker24.click:8086/activity/save';
   const activityCode = document.getElementById("activityScript").getAttribute("activity-code");
   
@@ -15,20 +15,13 @@ async function sendEvent(data) {
     ...data
   };
 
-  try {
-    const response = await fetch(urlRef, {
+  await fetch(urlRef, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(payload)
-    });
-    if (!response.ok) {
-      throw new Error(`Response status: ${response.status}`);
-    }
-  } catch (error) {
-    console.error(error.message);
-  }
+  }).catch(err => console.error('Failed to send event:', err));
 }
 
 document.addEventListener('click', function(event) {

@@ -14,7 +14,7 @@ document.addEventListener('click', function(event) {
 function getAttr(event) {
   const attr = [];
   for (var i = 0; i < event.target.attributes.length; i++) {
-    arry.push([event.target.attributes[i].name, event.target.attributes[i].value]);
+    attr.push([event.target.attributes[i].name, event.target.attributes[i].value]);
   }
   return attr;
 }

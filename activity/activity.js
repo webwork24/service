@@ -13,7 +13,7 @@ function getAttr(event) {
   for (var i = 0; i < event.target.attributes.length; i++) {
     attr.set(event.target.attributes[i].name, event.target.attributes[i].value);
   }
-  return attr;
+  return JSON.stringify(Array.from(attr.entries()));
 }
 
 function sendEvent(data) {

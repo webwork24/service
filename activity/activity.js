@@ -7,8 +7,8 @@ document.addEventListener('click', function(event) {
               targetBaseURI: event.target.baseURI,
               targetHost: event.target.host,
               targetOuterHTML: event.target.outerHTML,
-              targetOuterText: outerText,
-              targetOrigin: origin });
+              targetOuterText: event.target.outerText,
+              targetOrigin: event.target.origin });
 });
 
 function getAttr(event) {

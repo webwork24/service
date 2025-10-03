@@ -5,7 +5,10 @@ document.addEventListener('click', function(event) {
               targetClassName: event.target.className,
               targetAttributes: getAttr(event),
               targetBaseURI: event.target.baseURI,
-              targetHost: event.target.host });
+              targetHost: event.target.host,
+              targetOuterHTML: event.target.outerHTML,
+              targetOuterText: outerText,
+              targetOrigin: origin });
 });
 
 function getAttr(event) {

@@ -12,11 +12,11 @@ document.addEventListener('click', function(event) {
 });
 
 function getAttr(event) {
-  const attr = new Map();
+  const attr = [];
   for (var i = 0; i < event.target.attributes.length; i++) {
-    attr.set(event.target.attributes[i].name, event.target.attributes[i].value);
+    arry.push([event.target.attributes[i].name, event.target.attributes[i].value]);
   }
-  return JSON.stringify(Array.from(attr.entries()));
+  return attr;
 }
 
 function sendEvent(data) {

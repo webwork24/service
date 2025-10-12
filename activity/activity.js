@@ -1,4 +1,4 @@
-document.addEventListener('click', function(event) {
+document.addEventListener('click', async function(event) {
   const userInfo = await getUserInfo();
   await sendEvent({ type: 'click', 
               targetTagName: event.target.tagName,

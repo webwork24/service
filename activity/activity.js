@@ -9,7 +9,13 @@ document.addEventListener('click', async function(event) {
               targetHost: event.target.host,
               targetOuterHTML: event.target.outerHTML,
               targetOuterText: event.target.outerText,
-              targetOrigin: event.target.origin });
+              targetOrigin: event.target.origin,
+              ip: userInfo.ip,
+              region: userInfo.region,
+              country: userInfo.country,
+              countryCode: userInfo.country_code,
+              city: userInfo.city,
+              userAgent: userInfo.userAgent});
 });
 
 async function getAttr(event) {
@@ -21,6 +27,7 @@ async function getAttr(event) {
 }
 
 async function sendEvent(data) {
+  console.log(data);
   const urlRef = 'https://worker24.click:8086/activity/save';
   const activityCode = document.getElementById("activityScript").getAttribute("activity-code");
   if (!activityCode || !shouldSendEvent(data)) {

@@ -1,9 +1,10 @@
 document.addEventListener('click', function(event) {
-  sendEvent({ type: 'click', 
+  const userInfo = await getUserInfo();
+  await sendEvent({ type: 'click', 
               targetTagName: event.target.tagName,
               targetText: event.target.text,
               targetClassName: event.target.className,
-              targetAttributes: getAttr(event),
+              targetAttributes: await getAttr(event),
               targetBaseURI: event.target.baseURI,
               targetHost: event.target.host,
               targetOuterHTML: event.target.outerHTML,
@@ -11,7 +12,7 @@ document.addEventListener('click', function(event) {
               targetOrigin: event.target.origin });
 });
 
-function getAttr(event) {
+async function getAttr(event) {
   const attr = [];
   for (var i = 0; i < event.target.attributes.length; i++) {
     attr.push([event.target.attributes[i].name, event.target.attributes[i].value]);
@@ -19,10 +20,10 @@ function getAttr(event) {
   return attr;
 }
 
-function sendEvent(data) {
+async function sendEvent(data) {
   const urlRef = 'https://worker24.click:8086/activity/save';
   const activityCode = document.getElementById("activityScript").getAttribute("activity-code");
-  if (!activityCode) {
+  if (!activityCode || !shouldSendEvent(data)) {
     return;
   }
   const payload = {
@@ -37,4 +38,27 @@ function sendEvent(data) {
     },
     body: JSON.stringify(payload)
   }).catch(err => console.error('Failed to send event:', err));
+}
+
+async function getUserInfo() {
+  const userAgent = navigator.userAgent;
+
+  const response = await fetch('https://ipwho.is/');
+  const data = await response.json();
+
+  const userInfo = {
+    ip: data.ip,
+    region: data.region,
+    country: data.country,
+    countryCode: data.country_code,
+    city: data.city,
+    userAgent: userAgent
+  };
+
+  console.log(userInfo);
+  return userInfo;
+}
+
+async function shouldSendEvent(data) {
+  return true;
 }

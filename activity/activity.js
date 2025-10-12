@@ -27,7 +27,7 @@ async function getAttr(event) {
 }
 
 async function sendEvent(data) {
-  console.log(data);
+  console.log("sending: " + data);
   const urlRef = 'https://worker24.click:8086/activity/save';
   const activityCode = document.getElementById("activityScript").getAttribute("activity-code");
   if (!activityCode || !shouldSendEvent(data)) {

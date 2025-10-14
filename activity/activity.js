@@ -83,7 +83,7 @@ function needSendEvent(event) {
 
 function traverseToRoot(node) {
   let current = node;
-  while (current.parentNode != null) {
+  while (current.parentNode.attributes) {
     console.log(current.nodeName);
     if (current.hasAttribute("activity-access-rule-exception")) {
         return current;

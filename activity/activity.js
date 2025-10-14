@@ -22,7 +22,7 @@ document.addEventListener('click', async function(event) {
               country: userInfo.country,
               countryCode: userInfo.country_code,
               city: userInfo.city,
-              userAgent: userInfo.userAgent});
+              userAgent: userInfo.userAgent}, activityCode);
 });
 
 function getAttr(event) {
@@ -33,7 +33,7 @@ function getAttr(event) {
   return attr;
 }
 
-function sendEvent(data) {
+function sendEvent(data, activityCode) {
 
   const payload = {
     activityCode: activityCode,

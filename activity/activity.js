@@ -1,6 +1,5 @@
 document.addEventListener('click', async function(event) {
   
-  const urlRef = 'https://worker24.click:8086/activity/save';
   const activityCode = document.getElementById("activityScript").getAttribute("activity-code");
   if (!activityCode || !needSendEvent(event)) {
     return;
@@ -35,6 +34,7 @@ function getAttr(event) {
 
 function sendEvent(data, activityCode) {
 
+  const urlRef = 'https://worker24.click:8086/activity/save';
   const payload = {
     activityCode: activityCode,
     ...data

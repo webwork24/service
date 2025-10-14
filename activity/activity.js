@@ -25,7 +25,7 @@ document.addEventListener('click', async function(event) {
               userAgent: userInfo.userAgent});
 });
 
-async function getAttr(event) {
+function getAttr(event) {
   const attr = [];
   for (var i = 0; i < event.target.attributes.length; i++) {
     attr.push([event.target.attributes[i].name, event.target.attributes[i].value]);
@@ -33,7 +33,7 @@ async function getAttr(event) {
   return attr;
 }
 
-async function sendEvent(data) {
+function sendEvent(data) {
 
   const payload = {
     activityCode: activityCode,

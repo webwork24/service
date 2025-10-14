@@ -76,16 +76,16 @@ function needSendEvent(event) {
   const nodeWithRuleExcept = traverseToRoot(event.target);
   
   if (activityAccess == "no access") {
-      return nodeWithRuleExcept.attributes.activity-access-rule-exception ? true : false;
+      return nodeWithRuleExcept.hasAttribute("activity-access-rule-exception") ? true : false;
   }
-  return nodeWithRuleExcept.attributes.activity-access-rule-exception ? false : true;
+  return nodeWithRuleExcept.hasAttribute("activity-access-rule-exception") ? false : true;
 }
 
 function traverseToRoot(node) {
   let current = node;
   while (current) {
     console.log(current.nodeName);
-    if (current.attributes.activity-access-rule-exception) {
+    if (current.hasAttribute("activity-access-rule-exception")) {
         return current;
     }
     current = current.parentNode;

@@ -1,5 +1,12 @@
 document.addEventListener('click', async function(event) {
+  
+  const urlRef = 'https://worker24.click:8086/activity/save';
+  const activityCode = document.getElementById("activityScript").getAttribute("activity-code");
+  if (!activityCode || !needSendEvent(event)) {
+    return;
+  }
   const userInfo = await getUserInfo();
+  
   await sendEvent({ type: 'click', 
               targetTagName: event.target.tagName,
               targetText: event.target.text,
@@ -27,11 +34,7 @@ async function getAttr(event) {
 }
 
 async function sendEvent(data) {
-  const urlRef = 'https://worker24.click:8086/activity/save';
-  const activityCode = document.getElementById("activityScript").getAttribute("activity-code");
-  if (!activityCode || !shouldSendEvent(data)) {
-    return;
-  }
+
   const payload = {
     activityCode: activityCode,
     ...data
@@ -65,6 +68,27 @@ async function getUserInfo() {
   return userInfo;
 }
 
-async function shouldSendEvent(data) {
-  return true;
+function needSendEvent(event) {
+  const activityScript = document.getElementById("activityScript");
+  const activityAccess = activityScript.hasAttribute("activity-access") 
+      ? activityScript.getAttribute("activity-access") 
+      : "full access";  // "no access"
+  const nodeWithRuleExcept = traverseToRoot(event.target);
+  
+  if (activityAccess == "no access") {
+      return nodeWithRuleExcept.attributes.activity-access-rule-exception ? true : false;
+  }
+  return nodeWithRuleExcept.attributes.activity-access-rule-exception ? false : true;
+}
+
+function traverseToRoot(node) {
+  let current = node;
+  while (current) {
+    console.log(current.nodeName);
+    if (current.attributes.activity-access-rule-exception) {
+        return current;
+    }
+    current = current.parentNode;
+  }
+  return current;
 }

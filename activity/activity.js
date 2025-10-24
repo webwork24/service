@@ -76,9 +76,11 @@ function needSendEvent(event) {
   const nodeWithRuleExcept = traverseToRoot(event.target);
   
   if (activityAccess == "no access") {
-      return nodeWithRuleExcept.hasAttribute("activity-access-rule-exception") ? true : false;
+      return nodeWithRuleExcept.hasAttribute("activity-access-rule-exception")
+          && nodeWithRuleExcept.getAttribute("activity-access-rule-exception") == "true" ? true : false;
   }
-  return nodeWithRuleExcept.hasAttribute("activity-access-rule-exception") ? false : true;
+  return nodeWithRuleExcept.hasAttribute("activity-access-rule-exception")
+      && nodeWithRuleExcept.getAttribute("activity-access-rule-exception") == "true" ? false : true;
 }
 
 function traverseToRoot(node) {

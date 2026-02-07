@@ -16,7 +16,9 @@ h1 {
 
 p {
     font-size: 16px;
-    margin-bottom: 20px;
+    color: #555;
+    margin-bottom: 26px;
+    line-height: 1.5;
 }
 
 .container {

@@ -39,12 +39,18 @@
   </head>
   <body>
       <main>
-          <h1>Welcome</h1>
-          <p>We’re glad you made it! Please choose one of the options below:</p>
-          <div class="button-group">
-              <a href="https://worker24.link/auth" class="btn btn-primary">Register</a>
-              <a href="https://worker24.link/visits?code=test_entity" class="btn btn-secondary">Booking</a>
-              <a href="https://worker24.link/activity" class="btn btn-info">User Activity</a>
+          <div class="container">
+              <h1>Welcome</h1>
+              <p>We’re glad you made it! Please choose one of the options below:</p>
+              <form method="get">
+                  <select name="page" required>
+                      <option value="">— Select an option —</option>
+                      <option value="https://worker24.click:8082/auth-api/auth">Register</option>
+                      <option value="https://worker24.click:8085/queue/home?code=test_entity">Booking</option>
+                      <option value="https://worker24.click:8086/activity/home">User Activity</option>
+                  </select>
+                  <button type="submit">Go</button>
+              </form>
           </div>
       </main>
       <footer>

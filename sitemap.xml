@@ -6,24 +6,6 @@
     <lastmod>2025-09-04</lastmod>
     <priority>1.0</priority>
   </url>
-
-  <url>
-    <loc>https://worker24.link/visits</loc>
-    <lastmod>2025-09-04</lastmod>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://worker24.link/auth</loc>
-    <lastmod>2025-09-04</lastmod>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://worker24.link/activity</loc>
-    <lastmod>2025-11-09</lastmod>
-    <priority>0.8</priority>
-  </url>
   
 </urlset>
 

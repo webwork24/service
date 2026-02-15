@@ -1,11 +1,11 @@
 document.addEventListener('click', async function(event) {
-
-  const urlRef = 'https://worker24.click:8086/activity/save';
+  
   const activityCode = document.getElementById("activityScript").getAttribute("activity-code");
   if (!activityCode || !needSendEvent(event)) {
     return;
   }
   const userInfo = await getUserInfo();
+  
   await sendEvent({ type: 'click', 
               targetTagName: event.target.tagName,
               targetText: event.target.text,
@@ -34,7 +34,8 @@ function getAttr(event) {
 
 function sendEvent(data, activityCode) {
 
-   const payload = {
+  const urlRef = 'https://worker24.click:8086/activity/save';
+  const payload = {
     activityCode: activityCode,
     ...data
   };
@@ -75,16 +76,18 @@ function needSendEvent(event) {
   const nodeWithRuleExcept = traverseToRoot(event.target);
   
   if (activityAccess == "no access") {
-      return nodeWithRuleExcept.attributes.activity-access-rule-exception ? true : false;
+      return nodeWithRuleExcept.hasAttribute("activity-access-rule-exception")
+          && nodeWithRuleExcept.getAttribute("activity-access-rule-exception") == "true" ? true : false;
   }
-  return nodeWithRuleExcept.attributes.activity-access-rule-exception ? false : true;
+  return nodeWithRuleExcept.hasAttribute("activity-access-rule-exception")
+      && nodeWithRuleExcept.getAttribute("activity-access-rule-exception") == "true" ? false : true;
 }
 
 function traverseToRoot(node) {
   let current = node;
-  while (current) {
+  while (current.parentNode && current.parentNode.attributes) {
     console.log(current.nodeName);
-    if (current.attributes.activity-access-rule-exception) {
+    if (current.hasAttribute("activity-access-rule-exception")) {
         return current;
     }
     current = current.parentNode;

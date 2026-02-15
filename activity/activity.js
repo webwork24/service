@@ -1,0 +1,93 @@
+document.addEventListener('click', async function(event) {
+
+  const urlRef = 'https://worker24.click:8086/activity/save';
+  const activityCode = document.getElementById("activityScript").getAttribute("activity-code");
+  if (!activityCode || !needSendEvent(event)) {
+    return;
+  }
+  const userInfo = await getUserInfo();
+  await sendEvent({ type: 'click', 
+              targetTagName: event.target.tagName,
+              targetText: event.target.text,
+              targetClassName: event.target.className,
+              targetAttributes: await getAttr(event),
+              targetBaseURI: event.target.baseURI,
+              targetHost: event.target.host,
+              targetOuterHTML: event.target.outerHTML,
+              targetOuterText: event.target.outerText,
+              targetOrigin: event.target.origin,
+              ip: userInfo.ip,
+              region: userInfo.region,
+              country: userInfo.country,
+              countryCode: userInfo.country_code,
+              city: userInfo.city,
+              userAgent: userInfo.userAgent}, activityCode);
+});
+
+function getAttr(event) {
+  const attr = [];
+  for (var i = 0; i < event.target.attributes.length; i++) {
+    attr.push([event.target.attributes[i].name, event.target.attributes[i].value]);
+  }
+  return attr;
+}
+
+function sendEvent(data, activityCode) {
+
+   const payload = {
+    activityCode: activityCode,
+    ...data
+  };
+
+  fetch(urlRef, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(payload)
+  }).catch(err => console.error('Failed to send event:', err));
+}
+
+async function getUserInfo() {
+  const userAgent = navigator.userAgent;
+
+  const response = await fetch('https://ipwho.is/');
+  const data = await response.json();
+
+  const userInfo = {
+    ip: data.ip,
+    region: data.region,
+    country: data.country,
+    countryCode: data.country_code,
+    city: data.city,
+    userAgent: userAgent
+  };
+
+  console.log(userInfo);
+  return userInfo;
+}
+
+function needSendEvent(event) {
+  const activityScript = document.getElementById("activityScript");
+  const activityAccess = activityScript.hasAttribute("activity-access") 
+      ? activityScript.getAttribute("activity-access") 
+      : "full access";  // "no access"
+  const nodeWithRuleExcept = traverseToRoot(event.target);
+  
+  if (activityAccess == "no access") {
+      return nodeWithRuleExcept.attributes.activity-access-rule-exception ? true : false;
+  }
+  return nodeWithRuleExcept.attributes.activity-access-rule-exception ? false : true;
+}
+
+function traverseToRoot(node) {
+  let current = node;
+  while (current) {
+    console.log(current.nodeName);
+    if (current.attributes.activity-access-rule-exception) {
+        return current;
+    }
+    current = current.parentNode;
+  }
+  return current;
+}

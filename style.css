@@ -47,6 +47,12 @@ select:focus {
     box-shadow: 0 0 0 3px rgba(47, 128, 237, 0.15);
 }
 
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+}
+
 button {
     width: 60%;
     padding: 12px 0;
@@ -62,16 +68,72 @@ button {
         box-shadow 0.2s ease;
 }
 
-/* Hover animation */
-button:hover {
+/* Primary button */
+#goButton {
+    background: #2f80ed;
+    color: #ffffff;
+    border: none;
+    box-shadow: 0 6px 16px rgba(47, 128, 237, 0.28);
+}
+
+#goButton:hover {
     transform: translateY(-3px);
     box-shadow: 0 10px 26px rgba(47, 128, 237, 0.38);
 }
 
-/* Click */
-button:active {
-    transform: translateY(-1px);
-    box-shadow: 0 6px 16px rgba(47, 128, 237, 0.28);
+/* Secondary button */
+.secondary {
+    background: #f3f4f6;
+    color: #333;
+    border: 1px solid #d1d5db;
+}
+
+.secondary:hover {
+    background: #e5e7eb;
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* ВАЖНО: не display:none */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+}
+
+.modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background: #fff;
+    width: 90%;
+    max-width: 900px;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 30px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.modal-content ul {
+    text-align: left;
+    padding-left: 20px;
+    margin-left: 0;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
 }
 
 h1 {

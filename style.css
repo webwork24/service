@@ -162,3 +162,56 @@ footer a {
 footer a:hover {
     text-decoration: underline;
 }
+
+.services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.service-card {
+    background: #f9fafc;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+}
+
+.service-card h2 {
+    margin-top: 0;
+    color: #2a7ae2;
+}
+
+.service-card ul {
+    padding-left: 18px;
+    margin: 10px 0;
+}
+
+.service-button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 18px;
+    background: #2a7ae2;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.service-button:hover {
+    background: #1f5fc4;
+    transform: translateY(-2px);
+}

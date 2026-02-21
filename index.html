@@ -48,80 +48,69 @@
                   We’re glad you made it!  
                   Please choose one of the options below:
               </p>
-
               <select id="pageSelect" required>
                   <option value="">— Select an option —</option>
                   <option value="https://worker24.click:8082/auth-api/auth">Register</option>
                   <option value="https://worker24.click:8085/queue/home?code=test_entity">Booking</option>
                   <option value="https://worker24.click:8086/activity/home">User Activity</option>
               </select>
-
               <div class="button-group">
                   <button id="goButton">Go</button>
                   <button id="helpButton" class="secondary" onclick="openModal()">Help</button>
               </div>
           </div>
-
+          
           <div id="helpModal" class="modal">
             <div class="modal-content">
               <span class="close" onclick="closeModal()">&times;</span>
-
               <h1>Worker24 Services Overview</h1>
-
               <p><strong>Worker24</strong> provides digital solutions for small and medium-sized businesses, helping them automate scheduling and monitor user activity on client websites.</p>
-
-              <!-- SERVICE 1 -->
-              <h2>1. Online Appointment Booking System</h2>
-
-              <p>Worker24 offers a powerful and easy-to-use online appointment booking system that allows businesses to accept bookings 24/7.</p>
-
-              <p>Customers can book appointments online without phone calls or manual coordination. The system automatically updates availability and manages scheduling in real time.</p>
-
-              <h3>Main Features:</h3>
-              <ul>
-                  <li>24/7 online appointment booking</li>
-                  <li>Automated schedule management</li>
-                  <li>Client registration system</li>
-                  <li>Booking confirmation workflow</li>
-                  <li>Mobile-friendly interface</li>
-                  <li>Dashboard for managing appointments</li>
-              </ul>
-
-              <p>This service is ideal for service providers, consultants, salons, repair companies, coaches, and other appointment-based businesses.</p>
-
-              <!-- SERVICE 2 -->
-              <h2>2. User Activity Monitoring for Client Websites</h2>
-
-              <p>Worker24 also provides user activity monitoring tools for businesses that need visibility into how users interact with their websites.</p>
-
-              <p>This service helps website owners track behavior patterns, monitor user actions, and analyze engagement in a structured way.</p>
-
-              <h3>Main Capabilities:</h3>
-              <ul>
-                  <li>User activity tracking</li>
-                  <li>Session monitoring</li>
-                  <li>Behavior analysis tools</li>
-                  <li>Interaction logging</li>
-                  <li>Website performance insights</li>
-              </ul>
-
-              <p>With these monitoring features, businesses can better understand customer journeys, optimize user experience, and improve website performance.</p>
-
+              <div class="services-grid">
+                  <!-- CARD 1 -->
+                  <div class="service-card">
+                      <h2>Online Appointment Booking System</h2>
+                      <p>Worker24 offers a powerful and easy-to-use online appointment booking system that allows businesses to accept bookings 24/7.</p>
+                      <p>Customers can book appointments online without phone calls or manual coordination. The system automatically updates availability and manages scheduling in real time.</p>
+                      <h3>Main Features:</h3>
+                      <ul>
+                          <li>24/7 online appointment booking</li>
+                          <li>Automated schedule management</li>
+                          <li>Client registration system</li>
+                          <li>Booking confirmation workflow</li>
+                          <li>Mobile-friendly interface</li>
+                          <li>Dashboard for managing appointments</li>
+                      </ul>
+                      <p>This service is ideal for service providers, consultants, salons, repair companies, coaches, and other appointment-based businesses.</p>
+                      <a href="https://worker24.click:8085/queue/home?code=test_entity" class="service-button">Go</a>
+                  </div>
+                  <!-- CARD 2 -->
+                  <div class="service-card">
+                      <h2>User Activity Monitoring for Client Websites</h2>
+                      <p>Worker24 also provides user activity monitoring tools for businesses that need visibility into how users interact with their websites.</p>
+                      <p>This service helps website owners track behavior patterns, monitor user actions, and analyze engagement in a structured way.</p>
+                      <h3>Main Capabilities:</h3>
+                      <ul>
+                          <li>User activity tracking</li>
+                          <li>Session monitoring</li>
+                          <li>Behavior analysis tools</li>
+                          <li>Interaction logging</li>
+                          <li>Website performance insights</li>
+                      </ul>
+                      <p>With these monitoring features, businesses can better understand customer journeys, optimize user experience, and improve website performance.</p>
+                      <a href="https://worker24.click:8086/activity/home" class="service-button">Go</a>
+                  </div>
+              </div>    
               <!-- VALUE -->
               <h2>Why Choose Worker24?</h2>
-
               <ul>
                   <li>Designed for small and medium-sized businesses</li>
                   <li>Simple setup and intuitive interface</li>
                   <li>Cloud-based and accessible from anywhere</li>
                   <li>Scalable solutions for growing companies</li>
               </ul>
-
               <p>Worker24 combines appointment scheduling and user activity monitoring in one ecosystem, helping businesses operate more efficiently and make data-driven decisions.</p>
-
             </div>
           </div>
-        
       </main>
       <footer>
           Contact us: <a href="mailto:webwork24365@gmail.com">webwork24365@gmail.com</a> |

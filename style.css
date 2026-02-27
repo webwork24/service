@@ -78,6 +78,7 @@ button {
 
 #goButton:hover {
     transform: translateY(-3px);
+    background: #2462b6;
     box-shadow: 0 10px 26px rgba(47, 128, 237, 0.38);
 }
 
@@ -86,10 +87,13 @@ button {
     background: #f3f4f6;
     color: #333;
     border: 1px solid #d1d5db;
+    box-shadow: 0 6px 16px rgba(47, 128, 237, 0.28);
 }
 
 .secondary:hover {
+    transform: translateY(-3px);
     background: #e5e7eb;
+    box-shadow: 0 10px 26px rgba(47, 128, 237, 0.38);
 }
 
 .modal {

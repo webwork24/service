@@ -52,12 +52,12 @@ function sendEvent(data, activityCode) {
 async function getUserInfo() {
   const userAgent = navigator.userAgent;
 
-  const response = await fetch('https://ipwho.is/');
+  const response = await fetch('http://ip-api.com/json/');
   const data = await response.json();
 
   const userInfo = {
-    ip: data.ip,
-    region: data.region,
+    ip: data.query,
+    region: data.regionName,
     country: data.country,
     countryCode: data.country_code,
     city: data.city,

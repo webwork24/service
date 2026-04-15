@@ -2,67 +2,73 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>SQLite Viewer Online (No Upload, Runs in Your Browser)</title>
+  <title>SQLite Viewer Online — Run in Browser (No Upload)</title>
 
-  <meta name="description" content="Open SQLite database files directly in your browser. No upload required — your data stays on your device. Free and secure SQLite viewer.">
+  <meta name="description" content="Open SQLite files directly in your browser. No upload required. Your data stays on your device. Fast and secure SQLite viewer.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="index, follow">
 
   <link rel="stylesheet" href="styles.css">
-  <link rel="canonical" href="https://worker24.link/sqlite/">
 </head>
 
 <body>
-  <div class="container">
 
-    <h1>SQLite Viewer Online</h1>
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="logo">SQLite Viewer</div>
 
-    <div class="subtitle">
-      Open SQLite database files instantly — directly in your browser.
-      <br><strong>No upload required.</strong>
+    <div class="actions">
+      <button onclick="location.reload()">Refresh</button>
+      <button onclick="document.querySelector('iframe').requestFullscreen()">Fullscreen</button>
+      <button onclick="alert('Drop a .sqlite file inside the tool')">Open File</button>
+    </div>
+  </div>
+
+  <!-- TOOL -->
+  <div class="tool-container">
+
+    <div class="tool">
+      <iframe src="https://worker24.click:8087/dbtool/home"></iframe>
     </div>
 
-    <div class="trust">
-      🔒 <strong>Your data stays on your device</strong><br>
-      This tool runs entirely in your browser. Files are NOT uploaded to any server.
-    </div>
+    <!-- INFO -->
+    <div class="info">
 
-    <!-- TOOL -->
-    <iframe src="https://worker24.click:8087/dbtool/home"></iframe>
+      <div class="grid">
 
-    <div class="section">
-      <h2>How to open an SQLite file</h2>
-      <ol>
-        <li>Click "Open File" inside the tool</li>
-        <li>Select your .sqlite or .db file</li>
-        <li>View tables and data instantly</li>
-      </ol>
-    </div>
+        <div class="card">
+          <div class="title">🔒 Private by design</div>
+          <div class="small">
+            Your SQLite files are processed entirely in your browser.
+            Nothing is uploaded to any server.
+          </div>
+        </div>
 
-    <div class="section">
-      <h2>Features</h2>
-      <ul>
-        <li>Open SQLite files locally</li>
-        <li>No upload required</li>
-        <li>Works in your browser</li>
-        <li>Supports .sqlite, .db, .sqlite3</li>
-        <li>Fast and secure</li>
-      </ul>
-    </div>
+        <div class="card">
+          <div class="title">⚡ Fast SQLite Viewer</div>
+          <div class="small">
+            Open .sqlite, .db, .sqlite3 files instantly without installation.
+          </div>
+        </div>
 
-    <div class="section">
-      <h2>FAQ</h2>
+        <div class="card">
+          <div class="title">🧠 How it works</div>
+          <div class="small">
+            Load your file → parse locally → view tables and data instantly.
+          </div>
+        </div>
 
-      <p><strong>Is my SQLite file uploaded?</strong><br>
-      No. Everything runs locally in your browser.</p>
+        <div class="card">
+          <div class="title">❓ FAQ</div>
+          <div class="small">
+            No upload required. Works fully in browser. No installation needed.
+          </div>
+        </div>
 
-      <p><strong>Is it safe?</strong><br>
-      Yes. Your data never leaves your device.</p>
+      </div>
 
-      <p><strong>Do I need to install anything?</strong><br>
-      No installation required.</p>
     </div>
 
   </div>
+
 </body>
 </html>

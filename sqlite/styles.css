@@ -51,6 +51,7 @@ body {
 .tool {
   flex: 1;
   background: #ffffff;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
 }
 
 iframe {
@@ -120,4 +121,5 @@ iframe {
   .tool-container {
     height: calc(100vh - 50px);
   }
+
 }

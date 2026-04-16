@@ -3,19 +3,25 @@
 
   <url>
     <loc>https://worker24.link</loc>
-    <lastmod>2026-02-07</lastmod>
+    <lastmod>2026-04-17</lastmod>
     <priority>1.0</priority>
   </url>
 
   <url>
     <loc>https://worker24.link/sqlite</loc>
-    <lastmod>2026-04-16</lastmod>
+    <lastmod>2026-04-17</lastmod>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://worker24.link/booking</loc>
-    <lastmod>2026-04-16</lastmod>
+    <lastmod>2026-04-17</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://worker24.link/user-activity</loc>
+    <lastmod>2026-04-17</lastmod>
     <priority>0.8</priority>
   </url>
   

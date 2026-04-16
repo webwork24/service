@@ -1,125 +1,188 @@
+/* ===== Base ===== */
+* {
+    box-sizing: border-box;
+}
+
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f9fafb;
-  color: #111827;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ffffff;
+    color: #1a1a1a;
+    line-height: 1.6;
 }
 
-/* TOP BAR */
-.topbar {
-  height: 56px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 12px;
-  background: #ffffff;
-  border-bottom: 1px solid #e5e7eb;
+/* ===== Layout ===== */
+header, section, footer {
+    width: 100%;
 }
 
-.logo {
-  font-weight: 600;
-  font-size: 14px;
+section {
+    padding: 24px 16px;
+    max-width: 980px;
+    margin: 0 auto;
 }
 
-/* buttons */
-.actions {
-  display: flex;
-  gap: 8px;
+/* ===== Header ===== */
+.header {
+    text-align: center;
+    padding: 42px 16px 24px;
 }
 
-.actions button {
-  padding: 6px 10px;
-  background: #f3f4f6;
-  border: 1px solid #d1d5db;
-  color: #111827;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 12px;
+.header h1 {
+    font-size: 28px;
+    margin: 0 0 10px;
+    letter-spacing: -0.5px;
 }
 
-.actions button:hover {
-  background: #e5e7eb;
+.subtitle {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 18px;
 }
 
-/* TOOL AREA */
-.tool-container {
-  height: calc(100vh - 56px);
-  display: flex;
-  flex-direction: column;
+/* ===== CTA ===== */
+.cta-button {
+    display: inline-block;
+    padding: 12px 18px;
+    background: #0b5fff;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    transition: 0.2s ease;
 }
 
-.tool {
-  flex: 1;
-  background: #ffffff;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+.cta-button:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
 }
 
-iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
+.badges {
+    margin-top: 12px;
+    font-size: 13px;
+    color: #666;
 }
 
-/* INFO */
-.info {
-  background: #ffffff;
-  padding: 16px;
-  border-top: 1px solid #e5e7eb;
+/* ===== Screenshot ===== */
+.screenshot {
+    padding: 10px 16px 26px;
+    text-align: center;
 }
 
-/* GRID */
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
+.screenshot img {
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    border: 1px solid #eee;
 }
 
-.card {
-  background: #f9fafb;
-  padding: 14px;
-  border-radius: 10px;
-  border: 1px solid #e5e7eb;
+/* ===== Features ===== */
+.features h2 {
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 18px;
 }
 
-.title {
-  font-size: 13px;
-  font-weight: 600;
-  margin-bottom: 6px;
+.feature {
+    background: #fafafa;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 14px 14px;
+    margin-bottom: 12px;
 }
 
-.small {
-  font-size: 12px;
-  color: #4b5563;
-  line-height: 1.4;
+.feature h3 {
+    margin: 0 0 6px;
+    font-size: 16px;
 }
 
-/* MOBILE */
-@media (max-width: 768px) {
+.feature p {
+    margin: 0;
+    font-size: 14px;
+    color: #555;
+}
 
-  .topbar {
-    height: 50px;
-    padding: 0 10px;
-  }
+/* ===== Benefits ===== */
+.benefits {
+    background: #f7f8fa;
+    border-radius: 14px;
+    padding: 26px 16px;
+}
 
-  .actions button {
-    padding: 5px 8px;
-    font-size: 11px;
-  }
+.benefits h2 {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 14px;
+}
 
-  .grid {
-    grid-template-columns: 1fr;
-  }
+.benefits ul {
+    padding-left: 18px;
+    margin: 0;
+}
 
-  .info {
-    padding: 12px;
-  }
+.benefits li {
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #333;
+}
 
-  .card {
-    padding: 12px;
-  }
+/* ===== CTA Section ===== */
+.cta {
+    text-align: center;
+    padding: 34px 16px;
+}
 
-  .tool-container {
-    height: calc(100vh - 50px);
-  }
+.cta h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
 
+.cta p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 16px;
+}
+
+/* ===== Footer ===== */
+.footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 13px;
+    color: #777;
+    border-top: 1px solid #eee;
+}
+
+/* ===== Responsive ===== */
+@media (min-width: 600px) {
+    .header h1 {
+        font-size: 36px;
+    }
+
+    .subtitle {
+        font-size: 16px;
+    }
+
+    .feature {
+        padding: 16px;
+    }
+}
+
+@media (min-width: 900px) {
+    section {
+        padding: 32px 20px;
+    }
+
+    .feature {
+        display: inline-block;
+        width: 48%;
+        vertical-align: top;
+        margin-right: 2%;
+    }
+
+    .feature:nth-child(2n) {
+        margin-right: 0;
+    }
 }

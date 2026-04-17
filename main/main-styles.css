@@ -1,0 +1,38 @@
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial;background:#fff;color:#1a1a1a}
+
+.header{text-align:center;padding:40px 16px}
+.nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+.logo{font-weight:bold}
+.menu a{margin-left:12px;text-decoration:none;color:#333;font-size:14px}
+.menu a:hover{color:#0b5fff}
+
+.subtitle{color:#555;margin-bottom:16px}
+
+.cta-button{display:inline-block;padding:12px 18px;background:#0b5fff;color:#fff;text-decoration:none;border-radius:10px;margin:5px}
+.cta-button.secondary{background:#eee;color:#333}
+
+.badges{font-size:13px;color:#666;margin-top:10px}
+
+section{padding:24px 16px;max-width:1000px;margin:0 auto}
+
+.feature,.card{background:#fafafa;border:1px solid #eee;border-radius:12px;padding:16px;margin-bottom:12px}
+
+.services .card{text-align:center}
+
+.benefits{background:#f7f8fa;border-radius:12px}
+.benefits ul{padding-left:18px}
+
+.cta{text-align:center}
+
+.footer{text-align:center;padding:20px;font-size:13px;color:#777}
+
+@media(min-width:768px){
+.feature,.card{display:inline-block;width:48%;margin-right:2%}
+.feature:nth-child(2n),.card:nth-child(2n){margin-right:0}
+}
+
+@media(max-width:600px){
+.nav{flex-direction:column;gap:10px}
+.menu a{margin:0 6px}
+}

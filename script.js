@@ -69,7 +69,7 @@ function checkService(url, serviceName) {
 
 function redirectToFallback(serviceName, url) {
     const fallbackUrl =
-        "/service-unavailable.html" +
+        "/fallback/service-unavailable.html" +
         "?service=" + encodeURIComponent(serviceName) +
         "&url=" + encodeURIComponent(url);
 

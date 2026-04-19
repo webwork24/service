@@ -30,26 +30,48 @@ document.querySelectorAll(".cta-button").forEach(btn => {
 });
 
 function checkService(url, serviceName) {
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 5000);
+    const timeout = 5000;
+    let done = false;
 
-    fetch(url, {
-        method: "HEAD",
-        mode: "no-cors",
-        signal: controller.signal
-    })
-    .then(() => {
-        clearTimeout(timeout);
+    const iframe = document.createElement("iframe");
+    iframe.style.display = "none";
+    iframe.src = url;
+    document.body.appendChild(iframe);
+
+    const timer = setTimeout(() => {
+        if (done) return;
+        done = true;
+
+        iframe.remove();
+        redirectToFallback(serviceName, url);
+    }, timeout);
+
+    iframe.onload = () => {
+        if (done) return;
+        done = true;
+
+        clearTimeout(timer);
+        iframe.remove();
+
         window.location.href = url;
-    })
-    .catch(() => {
-        clearTimeout(timeout);
+    };
 
-        const fallbackUrl =
-            "/service-unavailable.html" +
-            "?service=" + encodeURIComponent(serviceName) +
-            "&url=" + encodeURIComponent(url);
+    iframe.onerror = () => {
+        if (done) return;
+        done = true;
 
-        window.location.href = fallbackUrl;
-    });
+        clearTimeout(timer);
+        iframe.remove();
+
+        redirectToFallback(serviceName, url);
+    };
+}
+
+function redirectToFallback(serviceName, url) {
+    const fallbackUrl =
+        "/service-unavailable.html" +
+        "?service=" + encodeURIComponent(serviceName) +
+        "&url=" + encodeURIComponent(url);
+
+    window.location.href = fallbackUrl;
 }

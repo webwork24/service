@@ -2,7 +2,8 @@ document.getElementById('goButton').addEventListener('click', function() {
     const select = document.getElementById('pageSelect');
     if (select.value) {
         // window.location.href = select.value;
-        checkService(this.href, this.textContent.trim());
+        const label = select.selectedOptions[0].text;
+        checkService(select.value, label.trim());
     }
 });
 

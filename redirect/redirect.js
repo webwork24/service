@@ -9,5 +9,5 @@ setTimeout(() => {
 // fallback if error
 setTimeout(() => {
     window.location.href =
-        "/service-unavailable.html?url=" + encodeURIComponent(url);
+        "/fallback/service-unavailable.html?url=" + encodeURIComponent(url);
 }, 4000);

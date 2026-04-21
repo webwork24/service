@@ -30,22 +30,10 @@ document.querySelectorAll(".cta-button").forEach(btn => {
 });
 
 function checkService(url, serviceName) {
-    const timeout = 5000;
-    setTimeout(() => {
-            window.location.href = url;
-    }, 100);
-
-    // fallback если не загрузилось
-    setTimeout(() => {
-        redirectToFallback(serviceName, url);
-    }, timeout);
-}
-
-function redirectToFallback(serviceName, url) {
     const fallbackUrl =
-        "/fallback/service-unavailable.html" +
+        "/redirect/redirect.html" +
         "?service=" + encodeURIComponent(serviceName) +
-        "&url=" + encodeURIComponent(url);
+        "&to=" + encodeURIComponent(url);
 
     window.location.href = fallbackUrl;
 }

@@ -31,40 +31,14 @@ document.querySelectorAll(".cta-button").forEach(btn => {
 
 function checkService(url, serviceName) {
     const timeout = 5000;
-    let done = false;
+    setTimeout(() => {
+            window.location.href = url;
+    }, 100);
 
-    const iframe = document.createElement("iframe");
-    iframe.style.display = "none";
-    iframe.src = url;
-    document.body.appendChild(iframe);
-
-    const timer = setTimeout(() => {
-        if (done) return;
-        done = true;
-
-        iframe.remove();
+    // fallback если не загрузилось
+    setTimeout(() => {
         redirectToFallback(serviceName, url);
     }, timeout);
-
-    iframe.onload = () => {
-        if (done) return;
-        done = true;
-
-        clearTimeout(timer);
-        iframe.remove();
-
-        window.location.href = url;
-    };
-
-    iframe.onerror = () => {
-        if (done) return;
-        done = true;
-
-        clearTimeout(timer);
-        iframe.remove();
-
-        redirectToFallback(serviceName, url);
-    };
 }
 
 function redirectToFallback(serviceName, url) {

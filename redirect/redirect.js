@@ -12,4 +12,4 @@ setTimeout(() => {
     window.location.href =
         "/fallback/service-unavailable.html?url=" + encodeURIComponent(url) +
         "&service=" + encodeURIComponent(serviceName);
-}, 4000);
+}, 400);

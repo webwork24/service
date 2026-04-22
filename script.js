@@ -29,11 +29,41 @@ document.querySelectorAll(".cta-button").forEach(btn => {
     });
 });
 
-function checkService(url, serviceName) {
+function getHealthUrl(url) {
+    const u = new URL(url);
+    return `${u.origin}/health`;
+}
+
+async function checkService(url, serviceName) {
+    try {
+        const healthUrl = getHealthUrl(url);
+
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 4000);
+
+        const res = await fetch(healthUrl, {
+            method: "GET"
+        });
+
+        clearTimeout(timeout);
+
+        if (res.ok) {
+            window.location.href = url;
+        } else {
+            fallback(serviceName, url);
+        }
+
+    } catch (e) {
+        fallback(serviceName, url);
+    }
+}
+
+function fallback(serviceName, url) {
     const fallbackUrl =
-        "/redirect/redirect.html" +
+        "/fallback/service-unavailable.html" +
         "?service=" + encodeURIComponent(serviceName) +
-        "&to=" + encodeURIComponent(url);
+        "&url=" + encodeURIComponent(url);
 
     window.location.href = fallbackUrl;
 }
+

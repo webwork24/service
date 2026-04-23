@@ -35,6 +35,7 @@ function getHealthUrl(url) {
 }
 
 async function checkService(url, serviceName) {
+    showLoader();
     try {
         const healthUrl = getHealthUrl(url);
 
@@ -50,12 +51,22 @@ async function checkService(url, serviceName) {
         if (res.ok) {
             window.location.href = url;
         } else {
+            hideLoader();
             fallback(serviceName, url);
         }
 
     } catch (e) {
+        hideLoader();
         fallback(serviceName, url);
     }
+}
+
+function showLoader() {
+    modal.classList.remove("hidden");
+}
+
+function hideLoader() {
+    modal.classList.add("hidden");
 }
 
 function fallback(serviceName, url) {

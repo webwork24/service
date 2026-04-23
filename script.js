@@ -22,6 +22,8 @@ window.addEventListener("click", function(e) {
     }
 });
 
+const modal = document.getElementById("loader-modal");
+
 document.querySelectorAll(".cta-button").forEach(btn => {
     btn.addEventListener("click", function(e) {
         e.preventDefault();

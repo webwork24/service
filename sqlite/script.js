@@ -26,11 +26,11 @@ async function checkService(url, serviceName) {
         });
 
         clearTimeout(timeout);
+        hideLoader();
 
         if (res.ok) {
             window.location.href = url;
         } else {
-            hideLoader();
             fallback(serviceName, url);
         }
 

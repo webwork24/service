@@ -65,7 +65,9 @@ async function getIpInfo() {
 async function getUserInfo(ipInfo) {
   const userAgent = navigator.userAgent;
 
-  const response = await fetch('https://worker24.click:8086/ipinfo?ip=${encodeURIComponent(ipInfo.ip)}');
+  const response = await fetch(
+    `https://worker24.click:8086/ipinfo?ip=${encodeURIComponent(ipInfo.ip)}`
+  );
   const data = await response.json();
 
   const userInfo = {

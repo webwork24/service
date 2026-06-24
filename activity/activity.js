@@ -5,7 +5,7 @@ document.addEventListener('click', async function(event) {
     return;
   }
   const ipInfo = await getIpInfo();
-  const userInfo = await getUserInfo();
+  const userInfo = await getUserInfo(ipInfo);
   
   await sendEvent({ type: 'click', 
               targetTagName: event.target.tagName,
@@ -62,7 +62,7 @@ async function getIpInfo() {
   return ipInfo;
 }
 
-async function getUserInfo() {
+async function getUserInfo(ipInfo) {
   const userAgent = navigator.userAgent;
 
   const response = await fetch('https://worker24.click:8086/ipinfo?ip=${encodeURIComponent(ipInfo.ip)}');

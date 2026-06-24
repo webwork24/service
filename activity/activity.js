@@ -4,6 +4,7 @@ document.addEventListener('click', async function(event) {
   if (!activityCode || !needSendEvent(event)) {
     return;
   }
+  const ipInfo = await getIpInfo();
   const userInfo = await getUserInfo();
   
   await sendEvent({ type: 'click', 
@@ -47,6 +48,18 @@ function sendEvent(data, activityCode) {
     },
     body: JSON.stringify(payload)
   }).catch(err => console.error('Failed to send event:', err));
+}
+
+async function getIpInfo() {
+  const response = await fetch('https://scvqvhrdhwo46okrnera2u7p7m0svkrs.lambda-url.eu-central-1.on.aws');
+  const data = await response.json();
+
+  const ipInfo = {
+    ip: data.ip
+  };
+
+  console.log(ipInfo);
+  return ipInfo;
 }
 
 async function getUserInfo() {

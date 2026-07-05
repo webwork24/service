@@ -35,7 +35,7 @@ function getAttr(event) {
 
 function sendEvent(data, activityCode) {
 
-  const urlRef = 'https://worker24.click:8086/activity/save';
+  const urlRef = 'https://activity.worker24.click/activity/save';
   const payload = {
     activityCode: activityCode,
     ...data
@@ -66,7 +66,7 @@ async function getUserInfo(ipInfo) {
   const userAgent = navigator.userAgent;
 
   const response = await fetch(
-    `https://worker24.click:8086/ipinfo?ip=${encodeURIComponent(ipInfo.ip)}`
+    `https://activity.worker24.click/ipinfo?ip=${encodeURIComponent(ipInfo.ip)}`
   );
   const data = await response.json();
 

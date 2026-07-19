@@ -1,7 +1,7 @@
 import {IP} from '../constants.js';
 
 const urlParams = window.location.search;
-const urlRef = 'https://' + IP + ':8088/tracking/home';
+const urlRef = 'https://tracking.' + IP;
 if (urlParams.length == 0) {
     window.location.href = urlRef;
 } else {

@@ -7,7 +7,8 @@ document.addEventListener('DOMContentLoaded', async function() {
         return;
     }
 
-    const userInfo = await getUserInfo();
+    const ipInfo = await getIpInfo();
+    const userInfo = await getUserInfo(ipInfo);
 
     await sendEvent({
         type: 'page_open',

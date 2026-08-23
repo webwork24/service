@@ -1,3 +1,29 @@
+document.addEventListener('DOMContentLoaded', async function() {
+    const activityCode = document
+        .getElementById("activityScript")
+        .getAttribute("activity-code");
+
+    if (!activityCode) {
+        return;
+    }
+
+    const userInfo = await getUserInfo();
+
+    await sendEvent({
+        type: 'page_open',
+        targetBaseURI: window.location.href,
+        targetHost: window.location.host,
+        targetOrigin: window.location.origin,
+
+        ip: userInfo.ip,
+        region: userInfo.region,
+        country: userInfo.country,
+        countryCode: userInfo.country_code,
+        city: userInfo.city,
+        userAgent: userInfo.userAgent
+    }, activityCode);
+});
+
 document.addEventListener('click', async function(event) {
   
   const activityCode = document.getElementById("activityScript").getAttribute("activity-code");
